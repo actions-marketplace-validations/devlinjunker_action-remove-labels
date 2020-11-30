@@ -19,7 +19,7 @@ async function run(): Promise<void> {
       return;
     }
 
-    const client = new github.GitHub(githubToken);
+    const client = github.getOctokit(githubToken);
 
     for (const label of labels) {
       try {
