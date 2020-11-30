@@ -22,12 +22,16 @@ async function run(): Promise<void> {
     const client = new github.GitHub(githubToken);
 
     for (const label of labels) {
-      await client.issues.removeLabel({
-        name: label,
-        owner,
-        repo,
-        issue_number: number
-      });
+      try {
+        await client.issues.removeLabel({
+          name: label,
+          owner,
+          repo,
+          issue_number: number
+        });
+      } catch (e) {
+        core.warning(`unable to remove label: ${label}`);
+      }
     }
   } catch (e) {
     core.error(e);
