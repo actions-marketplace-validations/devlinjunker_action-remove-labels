@@ -1,4 +1,4 @@
-name: Actions Ecosystem Remove Labels
+name: Test Remove Labels
 description: Remove labels to an issue or a pull request.
 author: The Actions Ecosystem Authors
 inputs:
