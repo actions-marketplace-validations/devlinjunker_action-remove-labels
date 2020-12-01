@@ -1030,6 +1030,9 @@ function run() {
                 return;
             }
             const client = github.getOctokit(githubToken);
+            client.hook.error('request', (error, options) => __awaiter(this, void 0, void 0, function* () {
+                core.warning(`unable to remove label`);
+            }));
             for (const label of labels) {
                 try {
                     yield client.issues.removeLabel({

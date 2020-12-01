@@ -20,6 +20,9 @@ async function run(): Promise<void> {
     }
 
     const client = github.getOctokit(githubToken);
+    client.hook.error('request', async (error, options) => {
+        core.warning(`unable to remove label`);
+    })
 
     for (const label of labels) {
       try {
