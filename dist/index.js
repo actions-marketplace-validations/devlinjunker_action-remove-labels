@@ -1033,7 +1033,7 @@ function run() {
             for (const label of labels) {
                 try {
                     yield client.issues.removeLabel({
-                        name: label,
+                        name: encodeURIComponent(label),
                         owner,
                         repo,
                         issue_number: number

@@ -24,7 +24,7 @@ async function run(): Promise<void> {
     for (const label of labels) {
       try {
         await client.issues.removeLabel({
-          name: label,
+          name: encodeURIComponent(label),
           owner,
           repo,
           issue_number: number
